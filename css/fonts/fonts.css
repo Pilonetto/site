@@ -1,0 +1,185 @@
+﻿/* @font-face kit by Fonts2u (https://fonts2u.com) */ 
+@font-face {
+	font-family:"Exo 2";
+	src:url("Exo2-Regular.eot?") format("eot"),
+	url("Exo2-Regular.woff") format("woff"),url("Exo2-Regular.ttf") format("truetype"),url("Exo2-Regular.svg#Exo2-Regular") format("svg");font-weight:normal;font-style:normal;}
+
+/* @font-face kit by Fonts2u (https://fonts2u.com) */ 
+@font-face {
+	font-family:"Montserrat-Bold";
+	src:url("Montserrat-Bold.eot?") format("eot"),url("Montserrat-Bold.woff") format("woff"),url("Montserrat-Bold.ttf") format("truetype"),url("Montserrat-Bold.svg#Montserrat-Bold") format("svg");font-weight:normal;font-style:normal;
+}
+
+
+/* @font-face kit by Fonts2u (https://fonts2u.com) */ 
+@font-face {
+	font-family:"Montserrat-Regular";
+	src:url("Montserrat-Regular.eot?") format("eot"),url("Montserrat-Regular.woff") format("woff"),url("Montserrat-Regular.ttf") format("truetype"),url("Montserrat-Regular.svg#Montserrat-Regular") format("svg");font-weight:normal;font-style:normal;}
+
+/* @font-face kit by Fonts2u (https://fonts2u.com) */ 
+@font-face {font-family:"Open Sans Light";
+	src:url("OpenSans-Light.eot?") format("eot"),url("OpenSans-Light.woff") format("woff"),url("OpenSans-Light.ttf") format("truetype"),url("OpenSans-Light.svg#OpenSans-Light") format("svg");font-weight:normal;font-style:normal;}
+
+
+.font-pb{
+	font-family: 'Exo 2'; 
+    color:white !important;
+}
+
+.demo-empresa {
+    color:white !important;  
+    font-weight: 700;
+    font-family:"Montserrat-Bold";    
+    font-size: 27px;   
+}
+
+.font-itens{
+    color:white !important;  
+    font-weight: 700;
+    font-family:"Montserrat-Bold";    
+    font-size: 17px;   
+}
+.font-portif{
+    color:#4E2C9C;  
+    font-weight: 700;
+    font-family:"Montserrat-Bold";    
+    font-size: 38px;
+}
+.font-body2{
+    color:#4E2C9C;  
+    font-weight: 700;
+    font-family:"Montserrat-Bold";    
+    font-size: 45px;
+}
+
+.font-body{
+    color:#4E2C9C;  
+    font-weight: 700;
+    font-family: 'Exo 2';    
+    font-size: 50px;
+}
+.color-pb{
+    background-color: #5e42a6 !important;
+}
+
+.demo-backgroud{
+   background-color: limegreen!important;    
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+
+    margin-left: 3rem;
+    
+}
+.title-pb{
+    font-size: 90px !important;
+}
+
+.h2text{
+    color: #5e42a6;
+}
+.title-sub-pb{
+    font-size: 20px;
+    text-align: left;
+}
+
+.menu-sub-pb{
+    font-size: 15px;
+    text-align: left;
+}
+
+nav .title {
+    color: white !important;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+div.direita { 
+  width: 100%;
+}
+
+div.direitapag {
+  float: right;
+}
+#paglinks ul {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+#paglinks li {
+  list-style: none;
+}
+.no-paddings{
+    padding: 0 !important;
+}
+.fa-stack-1x {
+    color:white;
+}
+.icon-facebook {
+   color:white;
+}
+
+.margin-5{
+    margin-top: 4rem;
+    padding: 4rem;
+    
+}
+
+.carousel-caption {
+    text-align: left;   
+    left: 10% !important;
+    top: 10% !important;
+    bottom: 75% !important;
+    color:#159191 !important;  
+    font-weight: 700;
+    font-family:"Montserrat-Bold";    
+        
+}
+
+.carousel-caption-right {
+    text-align: right;   
+    right: 10% !important;
+    
+    bottom: 10% !important;
+    margin-bottom: auto;
+    color:#159191 !important;  
+    font-weight: 700;
+    font-family:"Montserrat-Bold";    
+        
+}
+
+
+.color-slide-mail{
+    color:#159191 !important; 
+    font-size: 38px !important;
+}
+.color-slide-progress{
+    color:#2f3788 !important; 
+    font-size: 38px !important;
+}
+
+.color-slide-dados{
+    color:#3c328b !important; 
+    font-size: 38px !important;
+}    
+.text-slide-mail{
+
+    color:#333e5a !important;     
+    font-size: 17px !important;
+    margin-top: 13px;
+    font-family:"Open Sans Light";
+}
+.text-slide-progress{
+
+    color:#424dc1 !important;     
+    font-size: 17px !important;
+    margin-top: 13px;
+    font-family:"Open Sans Light";
+}
+.text-slide-dados{
+
+    color:black!important;     
+    font-size: 17px !important;
+    margin-bottom: auto;
+    font-family:"Open Sans Light";
+}
