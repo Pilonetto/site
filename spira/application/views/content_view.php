@@ -9,7 +9,7 @@
             </div>
 
             <ul class="list-unstyled components">
-                <p>Empresa Demonstração</p>
+                <p> <?php echo $this->session->userdata('username') ?> </p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Seus Serviços</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">

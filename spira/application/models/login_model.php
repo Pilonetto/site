@@ -26,7 +26,7 @@ class Login_model extends CI_Model{
         
         // Prepara a consulta
         $this->db->select('*');
-        $this->db->from('users');    
+        $this->db->from('usuarios');    
         $this->db->where('login', $username);
         $this->db->where('senha', $password);
         
@@ -43,10 +43,9 @@ class Login_model extends CI_Model{
         
             $row = $query->row();
             $data = array(
-                    'userid' => $row->id_user,
-                    'fname' => $row->login,
-                    'lname' => $row->login,
-                    'username' => $row->login,
+                    'userid' => $row->id_usuario,
+                    'username' => $row->nome,
+                    'clientid' => $row->id_cliente,                    
                     'validated' => true
                     );
             $this->session->set_userdata($data);
