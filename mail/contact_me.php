@@ -40,50 +40,28 @@ echo 'carregando';
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
-// Set PHPMailer to use the sendmail transport
-$mail->isSendmail();
 
-$mail->isSMTP();
-$mail->Host = 'mail.pbdatascience.com.br';
-$mail->Port = 465;
+
+$mail->IsSMTP();
+$mail->Host = "smtp.pbdatascience.com.br";
 $mail->SMTPAuth = true;
-$mail->SMTPSecure = 'tls';
+$mail->Username = 'contato@pbdatascience.com.br';
+$mail->Password = 'Marlon@040826';
 
-//$mail->IsSMTP(true); // Define que a mensagem será SMTP
-//$mail->Host = "smtp.gmail.com"; // Endereço do servidor SMTP
-//$mail->Port = 587;
-//$mail->SMTPAuth = true; // Usa autenticação SMTP? (opcional)
-//$mail->SMTPSecure = 'ssl';
-$mail->Username = 'contato@pbdatascience.com.br'; // Usuário do servidor SMTP
-$mail->Password = 'Marlon@040826'; // Senha do servidor SMTP
-// Define o remetente
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 $mail->From = "contato@pbdatascience.com.br"; // Seu e-mail
-$mail->FromName = "Joãozinho"; // Seu nome
+$mail->FromName = "MARLON HOME PAGE";
+
+$mail->AddAddress("marlon@xpert.com.br", "XPERT");
+
+$mail->WordWrap = 50; 
+$mail->IsHTML(true); 
+
+$mail->Subject = utf8_encode("Alterações cadastrais do cliente $id_entidade");
+$mail->Body =' nl2br($msg);';
+$mail->AltBody = "";
 
 
-//Set who the message is to be sent from
-//$mail->setFrom('marlon@xpert.com.br', 'First Last');
-$mail->addAddress('marlon@xpert.com.br');
-//Set an alternative reply-to address
-//Set the subject line
-$mail->Subject = 'PHPMailer sendmail test';
-//Read an HTML message body from an external file, convert referenced images to embedded,
-//convert HTML into a basic plain-text alternative body
-
-
-
-$mail->Body = 'Body of the email. Testing PHPMailer.';
-
-//Replace the plain text body with one created manually
-$mail->AltBody = 'This is a plain-text message body';
-//Attach an image file
-$mail->addAttachment('images/phpmailer_mini.png');
-//send the message, check for errors
-if (!$mail->send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-    echo "Message sent!";
+if(!$mail->Send()){
+	echo "ERRO ao tentar enviar o email. Detalhes do erro ( ".$mail->ErrorInfo." )";
+	exit;
 }
-
-?>
