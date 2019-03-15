@@ -1,63 +1,89 @@
 <?php
 
+
+ini_set('display_errors',1);
+ini_set('display_startup_erros',1);
+error_reporting(E_ALL);
+
 // Inclui o arquivo class.phpmailer.php localizado na pasta phpmailer
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+require '../vendor/autoload.php';
 
+
+
+echo 'carregando';
 //Load Composer's autoloader
-require './vendor/autoload.php';
+
+//
+//if(empty($_POST['name'])  		||
+//   empty($_POST['email']) 		||
+//   empty($_POST['phone']) 		||
+//   empty($_POST['message'])	||
+//   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+//   {
+//	echo "No arguments Provided!";
+//	return false;
+//   }
+
+//
+// 
+//$name = strip_tags(htmlspecialchars($_POST['name']));
+//$email_address = strip_tags(htmlspecialchars($_POST['email']));
+//$phone = strip_tags(htmlspecialchars($_POST['phone']));
+//$message = strip_tags(htmlspecialchars($_POST['message']));
+// 
+
+/**
+ * This example shows sending a message using a local sendmail binary.
+ */
+//Import the PHPMailer class into the global namespace
+
+//Create a new PHPMailer instance
+$mail = new PHPMailer;
+// Set PHPMailer to use the sendmail transport
+$mail->isSendmail();
+
+$mail->isSMTP();
+$mail->Host = 'mail.pbdatascience.com.br';
+$mail->Port = 465;
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = 'tls';
+
+//$mail->IsSMTP(true); // Define que a mensagem será SMTP
+//$mail->Host = "smtp.gmail.com"; // Endereço do servidor SMTP
+//$mail->Port = 587;
+//$mail->SMTPAuth = true; // Usa autenticação SMTP? (opcional)
+//$mail->SMTPSecure = 'ssl';
+$mail->Username = 'contato@pbdatascience.com.br'; // Usuário do servidor SMTP
+$mail->Password = 'Marlon@040826'; // Senha do servidor SMTP
+// Define o remetente
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+$mail->From = "contato@pbdatascience.com.br"; // Seu e-mail
+$mail->FromName = "Joãozinho"; // Seu nome
+
+
+//Set who the message is to be sent from
+//$mail->setFrom('marlon@xpert.com.br', 'First Last');
+$mail->addAddress('marlon@xpert.com.br');
+//Set an alternative reply-to address
+//Set the subject line
+$mail->Subject = 'PHPMailer sendmail test';
+//Read an HTML message body from an external file, convert referenced images to embedded,
+//convert HTML into a basic plain-text alternative body
 
 
 
-if(empty($_POST['name'])  		||
-   empty($_POST['email']) 		||
-   empty($_POST['phone']) 		||
-   empty($_POST['message'])	||
-   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-   {
-	echo "No arguments Provided!";
-	return false;
-   }
- 
-$name = strip_tags(htmlspecialchars($_POST['name']));
-$email_address = strip_tags(htmlspecialchars($_POST['email']));
-$phone = strip_tags(htmlspecialchars($_POST['phone']));
-$message = strip_tags(htmlspecialchars($_POST['message']));
- 
+$mail->Body = 'Body of the email. Testing PHPMailer.';
 
-
-$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-try {
-    //Server settings
-    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-    $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'marlon.pilonetto@gmail.com';                 // SMTP username
-    $mail->Password = 'Marlon@040826';                           // SMTP password
-    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = 587;                                    // TCP port to connect to
-
-    //Recipients
-    $mail->setFrom('marlon@xpert.com.br', 'Mailer');
-    $mail->addAddress('marlon@xpert.com.br', 'Joe User');     // Add a recipient
-    $mail->addAddress('ellen@example.com');               // Name is optional
-    $mail->addReplyTo('info@example.com', 'Information');
-    $mail->addCC('cc@example.com');
-    $mail->addBCC('bcc@example.com');
-
-    //Attachments
-  //  $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-   // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-    //Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+//Replace the plain text body with one created manually
+$mail->AltBody = 'This is a plain-text message body';
+//Attach an image file
+$mail->addAttachment('images/phpmailer_mini.png');
+//send the message, check for errors
+if (!$mail->send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+    echo "Message sent!";
 }
+
+?>
